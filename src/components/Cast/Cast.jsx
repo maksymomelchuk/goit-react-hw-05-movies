@@ -1,5 +1,5 @@
 import { fetchActors } from 'services/api';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { StyledActorsList, StyledActorCard } from './Cast.styled';
@@ -45,4 +45,4 @@ const Cast = () => {
   );
 };
 
-export { Cast };
+export default Cast;

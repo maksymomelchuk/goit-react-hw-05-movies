@@ -1,6 +1,6 @@
-import { Outlet, useParams, Link, useLocation } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { fetchById } from 'services/api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import {
   StyledBackButton,
   StyledMovieInfoDiv,
@@ -8,6 +8,9 @@ import {
   StyledMovie,
   StyledGenre,
   StyledGenreItem,
+  StyledTitle,
+  StyledCastReviewList,
+  StyledCastReviewLink,
 } from './Movies.styled';
 
 const MovieDetails = () => {
@@ -82,16 +85,30 @@ const MovieDetails = () => {
               'Oops'
             )}
             <div>
-              <h1>{title ?? original_title}</h1>
-              <p>
-                Rating:{' '}
-                {vote_average > 0
-                  ? Math.round(vote_average * 100) / 100
-                  : 'Unknown'}
-              </p>
-              <h2>Overview:</h2>
-              <p>{overview}</p>
-              <h3>Genres</h3>
+              <StyledTitle>{title ?? original_title}</StyledTitle>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  marginBottom: 20,
+                }}
+              >
+                <img
+                  src={`https://upload.wikimedia.org/wikipedia/commons/6/6a/New-imdb-logo.png`}
+                  alt=""
+                  width="50"
+                  height="30"
+                />
+                <span style={{ fontSize: 20, fontWeight: 'bold' }}>
+                  {vote_average > 0
+                    ? Math.round(vote_average * 100) / 100
+                    : 'Unknown'}
+                </span>
+              </div>
+              <h2 style={{ marginBottom: 10 }}>Overview:</h2>
+              <p style={{ width: 400, marginBottom: 30 }}>{overview}</p>
+              <h3 style={{ marginBottom: 20 }}>Genres</h3>
               <StyledGenre>
                 {genres.map(el => (
                   <StyledGenreItem key={el.name}>{el.name}</StyledGenreItem>
@@ -99,25 +116,35 @@ const MovieDetails = () => {
               </StyledGenre>
             </div>
           </StyledMovieInfoDiv>
-          <ul>
+          <StyledCastReviewList>
             <li>
-              <Link to="cast" onClick={handleClick} state={location.state}>
+              <StyledCastReviewLink
+                to="cast"
+                onClick={handleClick}
+                state={location.state}
+              >
                 Cast
-              </Link>
+              </StyledCastReviewLink>
             </li>
             <li>
-              <Link to="reviews" onClick={handleClick} state={location.state}>
+              <StyledCastReviewLink
+                to="reviews"
+                onClick={handleClick}
+                state={location.state}
+              >
                 Reviews
-              </Link>
+              </StyledCastReviewLink>
             </li>
-          </ul>
+          </StyledCastReviewList>
         </StyledMovie>
       </StyledSection>
-      <div>
-        <Outlet />
-      </div>
+      <Suspense fallback={<div>Loading</div>}>
+        <div>
+          <Outlet />
+        </div>
+      </Suspense>
     </>
   );
 };
 
-export { MovieDetails };
+export default MovieDetails;

@@ -2,6 +2,7 @@ import { fetchReviews } from 'services/api';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { StyledList } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -20,20 +21,22 @@ const Reviews = () => {
 
   return (
     <div id="box">
-      <ul style={{ padding: '80px 20px' }}>
+      <StyledList>
         {reviews.results.length > 0
           ? reviews.results.map(({ id, author, content }) => {
               return (
                 <li key={id}>
-                  <p>Author: {author}</p>
+                  <p style={{ fontSize: 24, marginBottom: 10 }}>
+                    Author: {author}
+                  </p>
                   <p>Content: {content}</p>
                 </li>
               );
             })
           : 'Sorry, no reviews for now'}
-      </ul>
+      </StyledList>
     </div>
   );
 };
 
-export { Reviews };
+export default Reviews;

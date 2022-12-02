@@ -4,8 +4,9 @@ const StyledActorsList = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding: 80px 0px;
+  padding: 80px 20px;
 `;
 
 const StyledActorCard = styled.li`

@@ -48,4 +48,4 @@ const Movies = () => {
   );
 };
 
-export { Movies };
+export default Movies;

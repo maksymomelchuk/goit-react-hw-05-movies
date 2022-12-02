@@ -4,12 +4,22 @@ import styled from 'styled-components';
 const StyledMoviesList = styled.ul`
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 0px 20px;
+  justify-content: center;
 `;
 
 const StyledMoviesElement = styled.li`
   width: 200px;
+
+  transition: all linear 250ms;
+
+  &:hover {
+    border: 2px solid white;
+    transform: scale(1.1);
+  }
 `;
 
 const StyledForm = styled.form`
@@ -36,6 +46,7 @@ const StyledSearchBtn = styled.button`
 `;
 
 const StyledBackButton = styled(Link)`
+  text-decoration: none;
   border: none;
   border-radius: 10px;
   padding: 10px 30px;
@@ -61,6 +72,7 @@ const StyledBackgroundDiv = styled.div`
 const StyledMovieInfoDiv = styled.div`
   display: flex;
   gap: 40px;
+  margin-top: 20px;
 `;
 
 const StyledSection = styled.div`
@@ -82,6 +94,28 @@ const StyledGenreItem = styled.span`
   border-radius: 5px;
 `;
 
+const StyledTitle = styled.h1`
+  margin-bottom: 20px;
+  font-size: 36px;
+  line-height: 1.5;
+`;
+
+const StyledCastReviewList = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+`;
+
+const StyledCastReviewLink = styled(Link)`
+  font-size: 24px;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #b2bec3;
+  border-radius: 5px;
+  color: black;
+`;
+
 export {
   StyledMoviesList,
   StyledMoviesElement,
@@ -95,4 +129,7 @@ export {
   StyledGenreItem,
   StyledInput,
   StyledSearchBtn,
+  StyledTitle,
+  StyledCastReviewList,
+  StyledCastReviewLink,
 };

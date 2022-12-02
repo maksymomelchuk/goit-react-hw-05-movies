@@ -19,11 +19,12 @@ const StyledNavItem = styled(NavLink)`
   &.active {
     background-color: #b2bec3;
     color: black;
+    font-weight: bold;
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: red;
+    color: #ccc;
   }
 `;
 

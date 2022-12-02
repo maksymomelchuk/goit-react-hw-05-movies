@@ -19,7 +19,7 @@ const MoviesList = ({ data }) => {
                 src={`https://image.tmdb.org/t/p/w200${poster_path}`}
                 alt=""
               />
-              <p>{title ? title : name}</p>
+              {/* <p>{title ? title : name}</p> */}
             </StyledMoviesElement>
           </Link>
         );
