@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { StyledMoviesList, StyledMoviesElement } from './Movies.styled';
 
@@ -28,3 +29,11 @@ const MoviesList = ({ data }) => {
 };
 
 export { MoviesList };
+
+MoviesList.propTypes = {
+  data: PropTypes.array,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  name: PropTypes.string,
+  poster_path: PropTypes.string,
+};
