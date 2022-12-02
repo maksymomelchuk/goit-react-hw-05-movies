@@ -1,5 +1,5 @@
 import { fetchActors } from 'services/api';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { StyledActorsList, StyledActorCard } from './Cast.styled';
